@@ -12,13 +12,14 @@ return [
     | and make sure a value is specified in the hub.
     |
     */
+    'disable_variants' => false,
     'sku' => [
         'required' => true,
-        'unique'   => true,
+        'unique' => true,
     ],
     'gtin' => [
         'required' => false,
-        'unique'   => false,
+        'unique' => false,
     ],
     'mpn' => [
         'required' => false,
