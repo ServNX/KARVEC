@@ -46,7 +46,7 @@ class ProductResource extends JsonResource
         $prices = [];
 
         foreach ($variants as $variant) {
-            $price = Pricing::for($variant)->base->price;
+            $price = Pricing::for($variant)->get()->base->price;
 
             $prices[] = [
                 'value'     => $price->value,
