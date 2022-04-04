@@ -6,6 +6,7 @@ use Database\Seeders\App\CollectionsSeeder;
 use Database\Seeders\App\LedSignSeeder;
 use Database\Seeders\App\ProductsSeeder;
 use Database\Seeders\App\ProductTypesSeeder;
+use Database\Seeders\App\TaxSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -22,7 +23,7 @@ class DatabaseSeeder extends Seeder
             ProductTypesSeeder::class,
             CollectionsSeeder::class,
             ProductsSeeder::class,
-            // LedSignSeeder::class
+            TaxSeeder::class
         ];
 
         foreach ($seeders as $seeder) {

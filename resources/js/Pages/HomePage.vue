@@ -56,7 +56,7 @@
             -->
             <div class="ratio ratio-16x9">
               <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                <source src="/videos/vid1.mp4" type="video/mp4">
+                <source :src="`${asset_url}/videos/vid1.mp4`" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -571,6 +571,11 @@ export default {
     Layout,
     Hero,
     Head
+  },
+  data () {
+    return {
+      asset_url: process.env.MIX_AWS_ASSET_URL
+    };
   },
   mounted () {
     new PureCounter;
