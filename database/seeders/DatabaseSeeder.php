@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             ProductTypesSeeder::class,
             CollectionsSeeder::class,
             ProductsSeeder::class,
+            LedSignSeeder::class,
             TaxSeeder::class
         ];
 

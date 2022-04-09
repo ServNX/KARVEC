@@ -41,10 +41,6 @@ return [
             'provider' => 'users',
         ],
 
-        'staff' => [
-            'driver' => 'getcandyhub',
-        ],
-
         'api' => [
             'driver' => 'sanctum',
             'provider' => 'users',

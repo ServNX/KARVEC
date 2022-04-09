@@ -42,7 +42,7 @@ class ProductsSeeder extends Seeder
             'brand'           => 'KARVEC',
             'attribute_data'  => [
                 'name'        => new TranslatedText([
-                    'en' => 'My Teddy LED Sign'
+                    'en' => 'Example Seeded Product'
                 ]),
                 'description' => new TranslatedText([
                     'en' => 'Update Product Description'
@@ -60,7 +60,7 @@ class ProductsSeeder extends Seeder
             'product_id'    => $product->id,
             'tax_class_id'  => $taxClass->id,
             'sku'           => Str::random(12),
-            'unit_quantity' => 20,
+            'unit_quantity' => 1,
             'shippable'     => true,
         ]);
 
@@ -68,10 +68,8 @@ class ProductsSeeder extends Seeder
             ->whereJsonContains('attribute_data->name->value->en', 'Children\'s Bedroom Signs')
             ->first();
 
-        $collection->products()->sync([
-            $product->id => [
-                'position' => 1,
-            ]
+        $collection->products()->attach([
+            $product->id => ['position' => 1]
         ]);
 
         Price::create([
