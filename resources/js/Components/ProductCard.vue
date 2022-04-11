@@ -17,7 +17,9 @@
               : `${product.price_lowest} - ${product.price_highest}`
         }}
       </p>
-      <a href="#"><i class="bi bi-heart fs-4"></i></a>
+      <button @click="form.post('/product/favorite')" class="btn btn-link border-0">
+        <i class="bi bi-heart fs-4"></i>
+      </button>
     </div>
   </div>
 </template>
@@ -27,12 +29,19 @@
 </style>
 
 <script>
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link, useForm } from '@inertiajs/inertia-vue3';
 
 export default {
   name: 'ProductCard',
   props: {
     product: { required: true }
+  },
+  data () {
+    return {
+      form: useForm({
+        'product_id': null
+      })
+    };
   },
   components: { Link },
   computed: {
@@ -43,6 +52,9 @@ export default {
 
       return `/shop/${group}/${collection}/${product}`;
     }
+  },
+  mounted () {
+    this.form.product_id = this.product.id;
   }
 };
 </script>

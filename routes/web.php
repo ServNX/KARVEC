@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\User\AddressController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Shop\CartController;
+use App\Http\Controllers\Shop\FavoritesController;
 use App\Http\Controllers\Shop\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Shop\PageController;
@@ -33,6 +34,8 @@ Route::post('/cart/update', [CartController::class, 'update'])->name('cart.post.
 Route::post('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.post.remove');
 Route::post('/cart/address/update', [CartController::class, 'updateAddress'])->name('cart.post.address.update');
 Route::post('/cart/purchase', [CartController::class, 'purchase'])->name('cart.post.purchase');
+
+Route::post('/product/favorite', [FavoritesController::class, 'toggleFavorite'])->name('product.favorite');
 
 Route::get('/order/summary', [OrderController::class, 'summary'])->name('order.summary');
 

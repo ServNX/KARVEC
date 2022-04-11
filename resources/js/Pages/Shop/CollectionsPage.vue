@@ -1,5 +1,5 @@
 <template>
-  <Layout breadcrumbs>
+  <Layout can-alert>
     <template v-for="collection in collections.data" :key="collection.id">
       <Collection v-if="collection.products.length > 0"
                   :collection="collection"

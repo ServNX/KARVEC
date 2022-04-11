@@ -10,11 +10,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Cashier\Billable;
+use Servnx\GetCandyFavorite\Traits\Favoriter;
 
 class User extends Authenticatable
 {
     use HasFactory,
         GetCandyUser,
+        Favoriter,
         Billable,
         Notifiable;
 
