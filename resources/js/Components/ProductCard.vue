@@ -17,8 +17,11 @@
               : `${product.price_lowest} - ${product.price_highest}`
         }}
       </p>
-      <button @click="form.post('/product/favorite')" class="btn btn-link border-0">
-        <i class="bi bi-heart fs-4"></i>
+      <button v-if="product.has_favorited !== null"
+              @click="toggleFavorite"
+              class="btn btn-link border-0"
+      >
+        <i :class="`bi ${favorited ? 'bi-heart-fill' : 'bi-heart'} fs-4`"></i>
       </button>
     </div>
   </div>
@@ -38,6 +41,7 @@ export default {
   },
   data () {
     return {
+      favorited: false,
       form: useForm({
         'product_id': null
       })
@@ -53,8 +57,15 @@ export default {
       return `/shop/${group}/${collection}/${product}`;
     }
   },
+  methods: {
+    toggleFavorite () {
+      this.favorited = !this.favorited;
+      this.form.post('/product/favorite');
+    }
+  },
   mounted () {
     this.form.product_id = this.product.id;
+    this.favorited = this.product.has_favorited;
   }
 };
 </script>
