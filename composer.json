@@ -11,13 +11,16 @@
     {
       "type": "path",
       "url": "packages/*",
-      "symlink": true
+      "symlink": true,
+      "exclude": [
+        "servnx/getcandy-favorites"
+      ]
     }
   ],
   "require": {
     "php": "^8.0",
     "fruitcake/laravel-cors": "^2.0",
-    "getcandy/admin": "*",
+    "getcandy/admin": "^2.0-beta",
     "guzzlehttp/guzzle": "^7.0.1",
     "http-interop/http-factory-guzzle": "^1.2",
     "inertiajs/inertia-laravel": "^0.5.4",
@@ -25,8 +28,8 @@
     "laravel/framework": "^8.75",
     "laravel/scout": "^9.3",
     "laravel/tinker": "^2.5",
-    "meilisearch/meilisearch-php": "^0.20.0",
-    "servnx/getcandy-favorites": "*"
+    "meilisearch/meilisearch-php": "^v0.20",
+    "servnx/getcandy-favorites": "^v1.0-beta"
   },
     "require-dev": {
         "facade/ignition": "^2.5",

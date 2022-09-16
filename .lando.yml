@@ -2,7 +2,7 @@ name: karvec
 recipe: laravel
 config:
   webroot: public
-  php: '8.0'
+  php: '8.1'
   via: nginx
   cache: redis
 services:
@@ -16,7 +16,7 @@ services:
     type: compose
     app_mount: false
     services:
-      image: getmeili/meilisearch:latest
+      image: getmeili/meilisearch:v0.27.1
       command: tini -- /bin/sh -c ./meilisearch --master-key="meilisearch"
       ports:
         - '7700:7700'
